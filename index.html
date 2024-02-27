@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Proyecto M1</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My first project </title>
+        <link rel="stylesheet" type="text/css" href="./styles/reset.css">
+        <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+        
+    </head>
+    <body>
+
+        <header>
+            <h1 id="title">Omar Aliaga</h1>
+            <h2 id="title_description">My First Web Page</h2>
+        </header>
+
+        <main>  
+            <section id="aboutme">
+                <h2>About me</h2>
+                <p id="description">Bachelor in Mechatronics Engineering passionate about technology with 
+                a solid academic foundation and a desire to grow in the field of digital 
+                solutions. Able to apply 4.0 technology principles in process optimization 
+                and continuous improvement. Seeking opportunities to develop practical skills 
+                and contribute to the success of large projects. Lorem ipsum dolor sit amet consectetur 
+                adipisicing elit. Quia ducimus amet officiis, saepe animi dolor molestias placeat? Cumque 
+                voluptatem aut optio dolor! Modi perspiciatis nisi eveniet aliquam. Aspernatur, inventore earum.</p>    
+            </section>
+
+            <section>
+                <h2>My favorite technologies</h2>
+                <article id="technologies">
+                    <div class="cards">
+                        <img src="./assets/images/ruby_logo.png" alt="Logo Ruby">
+                        <p>Ruby</p>
+                    </div>
+                    
+                    <div class="cards">
+                        <img src="./assets/images/python_logo.jpeg" alt="Logo Python">
+                        <p>Python</p>
+                    </div>
+                    
+                    <div class="cards">
+                        <img src="./assets/images/react_logo.png" alt="Logo React">
+                        <p>React</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="hobbies">
+                <h2>Favorite Hobbies</h2>
+                <article>
+                    <h3>Create new activity</h3>
+                    <form id="actividadForm">
+                        <label for="titulo">Title</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="Enter title"  required><br><br>
+                        
+                        <label for="descripcion">Description</label><br>
+                        <textarea id="descripcion" name="descripcion" placeholder="Enter description" rows="10"></textarea><br><br>
+                        
+                        <label for="urlImagen">Image URL</label>
+                        <input type="url" id="urlImagen" name="urlImagen" placeholder="Enter URL"  required><br><br>
+                        
+                        <button type="submit">Add activity</button>
+                    </form>
+                </article>
+
+                <article>
+                    <!-- Las tarjetas de actividades se añadirán aquí mediante JavaScript -->
+                </article>
+            </section>
+        </main>
+
+        <footer>
+
+        </footer>
+    </body>
 </html>
