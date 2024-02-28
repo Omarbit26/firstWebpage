@@ -3,16 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My first project </title>
+        <title>M1 Project </title>
         <link rel="stylesheet" type="text/css" href="./styles/reset.css">
         <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-        
     </head>
     <body>
 
         <header>
-            <h1 id="title">Omar Aliaga</h1>
+            <h1 id="title">Omar Aliaga 🕸️</h1>
             <h2 id="title_description">My First Web Page</h2>
+            <nav id="web_parts">
+                <ul>
+                    <li class="eyelash"><a href="#aboutme">About me</a></li>
+                    <li class="eyelash"><a href="#tech">Technologies</a></li>
+                    <li class="eyelash"><a href="#hobbies">Hobbies</a></li>
+                </ul>
+            </nav>
+            
         </header>
 
         <main>  
@@ -27,42 +34,45 @@
                 voluptatem aut optio dolor! Modi perspiciatis nisi eveniet aliquam. Aspernatur, inventore earum.</p>    
             </section>
 
-            <section>
+            <section id="tech">
                 <h2>My favorite technologies</h2>
-                <article id="technologies">
-                    <div class="cards">
-                        <img src="./assets/images/ruby_logo.png" alt="Logo Ruby">
-                        <p>Ruby</p>
-                    </div>
-                    
-                    <div class="cards">
-                        <img src="./assets/images/python_logo.jpeg" alt="Logo Python">
-                        <p>Python</p>
-                    </div>
-                    
-                    <div class="cards">
-                        <img src="./assets/images/react_logo.png" alt="Logo React">
-                        <p>React</p>
-                    </div>
-                </article>
+                    <ul id="technologies">
+                        <li class="cards">
+                            <img src="./assets/images/ruby_logo.png" alt="Logo Ruby">
+                            <p>Ruby</p>
+                        </li>
+                            
+                        <li class="cards">
+                            <img src="./assets/images/python_logo.webp" alt="Logo python">
+                            <p>Python</p>
+                        </li>
+
+                        <li class="cards">   
+                            <img src="./assets/images/react_logo.svg" alt="Logo Reac">
+                            <p>Ruby</p>
+                        </li>
+                    </ul>
             </section>
 
             <section id="hobbies">
                 <h2>Favorite Hobbies</h2>
                 <article>
-                    <h3>Create new activity</h3>
-                    <form id="actividadForm">
-                        <label for="titulo">Title</label>
-                        <input type="text" id="titulo" name="titulo" placeholder="Enter title"  required><br><br>
-                        
-                        <label for="descripcion">Description</label><br>
-                        <textarea id="descripcion" name="descripcion" placeholder="Enter description" rows="10"></textarea><br><br>
-                        
-                        <label for="urlImagen">Image URL</label>
-                        <input type="url" id="urlImagen" name="urlImagen" placeholder="Enter URL"  required><br><br>
-                        
-                        <button type="submit">Add activity</button>
-                    </form>
+                        <form id="actividadForm">
+                            <fieldset>
+                                <legend>Create new activity</legend>
+                                <label for="titulo">Title</label>
+                                <input type="text" id="titulo" name="titulo" placeholder="Enter title"  required><br><br>
+                                
+                                <label for="descripcion">Description</label><br>
+                                <textarea id="descripcion" name="descripcion" placeholder="Enter description" rows="10"></textarea><br><br>
+                                
+                                <label for="urlImagen">Image URL</label>
+                                <input type="url" id="urlImagen" name="urlImagen" placeholder="Enter URL"  required><br><br>
+                                
+                                <button type="submit">Add activity</button>
+                            </fieldset>
+                            
+                        </form>
                 </article>
 
                 <article>
@@ -72,7 +82,7 @@
         </main>
 
         <footer>
-
+            © 2020 <strong>Omar Aliaga </strong>  All rights reserved. 
         </footer>
     </body>
 </html>

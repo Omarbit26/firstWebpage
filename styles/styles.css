@@ -1,13 +1,44 @@
+@font-face {
+    font-family: 'Lato';
+    src: url(/assets/fonts/Lato-Regular.ttf);
+    font-weight: normal;
+    font-weight: normal;
+}
+
 body{
-    font-family: system-ui;
+    font-family: 'Lato';
     margin-left:2%;
-    margin-right:2%;
+    margin-right:2%;    
 }
 
 header{
     margin-top: 1em;
     background-color: rgba(59,130,246,0.5);
-    padding: 0.5em;  
+    padding-top: 0.5em;  
+}
+
+nav{
+    margin-top: 2em;
+    padding: 1em;
+    background-color:rgba(59,130,246,1);
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+}
+
+nav li a{
+    font-size: 140%;
+    color: white ;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+.eyelash:hover{
+    font-size: 160%;
 }
 
 section{
@@ -18,27 +49,31 @@ section{
     line-height: 1.75rem;
     padding: 2rem;
     padding-top: 2rem;
-    height: 100%;
     margin-top: 3em;
     margin-bottom: 3em;
+}
+
+footer{
+    text-align: center;
 }
 
 h1{
     text-align: center;    
     font-size: 400%;
     font-weight: 600;
-    margin: 1em;
+    margin: 0.5em;
 } 
 
 h2{
     text-align: center;
-    font-size: 220%;
+    font-size: 180%;
     margin-bottom: 1rem;
     margin-top: 1rem;
     font-weight: bold;
+    color: rgba(59,130,246,1);
 }
 
-h3{
+fieldset{
     font-size: 100%;
     margin-bottom: 1em;
     margin-top:2em;
@@ -59,21 +94,22 @@ input, textarea{
     width: 100%;
     border-width: 2px; 
     border-style: solid; 
-    border-color: black; 
+    border-color: black;
+    border-radius: 8px; 
 }
 input{
-    height: 4em;
+    height: 3em;
 }
 
 input::placeholder,#descripcion::placeholder{
-    font-family: system-ui;
+    font-family: 'Lato';
     font-size: x-large;
 }
 
 button{
     tab-size: 4;
     text-align: center;
-    background-color:rgba(59,130,246,0.5);
+    background-color: rgba(59,130,246,1);
     color:white;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -95,6 +131,12 @@ button{
     margin: 1em;
     padding: 1em;
     border-radius: 5%;
+    cursor: pointer;
+}
+
+.cards:hover{
+    transform: rotate(-5deg);
+    border: 2px solid rgba(59,130,246,1);;
 }
 
 #technologies{
