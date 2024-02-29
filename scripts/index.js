@@ -32,29 +32,27 @@ class Repository{
 
 const repository = new Repository();
 
-const showActivity = (activity)=>{
+const showActivity = ({title,description,imgURL})=>{
 
-
+  const tarjeta = document.createElement('div');
   const tituloElemento = document.createElement('h3');
   const descripcionElemento = document.createElement('p');
   const imagenElemento = document.createElement('img');
    
-  tituloElemento.innerHTML = activity.title;
-  imagenElemento.src=activity.imgURL;
-  descripcionElemento.innerHTML = activity.description;
+  tituloElemento.innerHTML = title;
+  imagenElemento.src= imgURL;
+  descripcionElemento.innerHTML = description;
   
 
   tituloElemento.classList.add('tituloActividad');
   descripcionElemento.classList.add('descripcionActividad');
   imagenElemento.classList.add('imagenActividad');
-
-  const tarjeta = document.createElement('div');
+  tarjeta.classList.add('tarjetaActividad');
+  
 
   tarjeta.appendChild(tituloElemento);
   tarjeta.appendChild(imagenElemento);
   tarjeta.appendChild(descripcionElemento);
-  
-  tarjeta.classList.add('tarjetaActividad');
 
   return tarjeta;
 }
@@ -71,7 +69,7 @@ const convertActivies = ()=>{
 }
 
 
-const HandlerAddActivities = ()=>{
+const handlerAddActivities = ()=>{
 
 
     const tituloInput = document.getElementById("titulo").value
@@ -79,7 +77,7 @@ const HandlerAddActivities = ()=>{
     const urlImagenInput = document.getElementById("urlImagen").value
 
     if(!tituloInput || !descripcionInput || !urlImagenInput){
-        alert("competar todos los campos");
+        alert("Complete all the form");
         return
     }
     
@@ -92,8 +90,25 @@ const HandlerAddActivities = ()=>{
     document.getElementById("descripcion").value=""
     document.getElementById("urlImagen").value=""
     
+}
+
+
+const handlerDeleteActivities = ()=>{
+    
+    repository.activities.forEach(act=>repository.deleteActivity(act.id));
+    const contenedorTarjetas = document.getElementById("contenedorTarjetas");
+    contenedorTarjetas.innerHTML="Click add Activitie to eliminate the cards";
+    
 
 }
 
-botonAgregarActivity = document.getElementById("btnAddActivity")
-botonAgregarActivity.addEventListener('click',HandlerAddActivities); 
+
+
+const botonAgregarActivity = document.getElementById("btnAddActivity");
+const botonDeleteActivity = document.getElementById("btnEliminateActivity");
+
+
+
+botonAgregarActivity.addEventListener('click',handlerAddActivities); 
+botonDeleteActivity.addEventListener('click',handlerDeleteActivities);
+

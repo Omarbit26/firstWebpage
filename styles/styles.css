@@ -82,6 +82,7 @@ fieldset{
     margin-bottom: 1em;
     margin-top:2em;
     font-weight: bold;
+    text-align: center;
 }
    
 img{
@@ -116,7 +117,7 @@ button{
     text-align: center;
     background-color: rgba(59,130,246,1);
     color:white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
     box-sizing: border-box;
     border: 0 solid #e5e7eb;
@@ -128,6 +129,7 @@ button{
     padding-bottom: .5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    border-radius: 4px;
 }
 
 .cards{
@@ -167,17 +169,25 @@ button{
 .tarjetaActividad{
     border: 2px solid black ;
     text-align: center;
-    margin: 1em;
-    padding:1em ;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-radius: 5px;
+    margin: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 15px;
+    cursor:pointer;
+}
+
+.tarjetaActividad:hover{
+    padding:2em ;
+    border-width: 3px;
+    border-style:dashed;
+    border-color: red;
 }
 
 .tituloActividad{
     font-size: 150%;
-    font-weight: 600;
-    margin: 1em;
+    font-weight: 100;
+    margin-top: 0.5em;
+    margin-bottom: 0.8em;
 
 }
 
@@ -194,5 +204,12 @@ button{
 
 #contenedorTarjetas{
     display: flex;
-    justify-content: space-around;
+    justify-content:space-around;
+}
+
+#btnEliminateActivity{
+    background-color:rgb(251, 36, 36);
+    display: block;
+    margin: auto;
+    margin-top: 1em;
 }
