@@ -8,19 +8,20 @@
 body{
     font-family: 'Lato';
     margin-left:2%;
-    margin-right:2%;    
+    margin-right:2%;
+    background-color: rgb(243, 244, 246);
+   
 }
 
 header{
     margin-top: 1em;
-    background-color: rgba(59,130,246,0.5);
+    background-color: rgba(59,130,246,0.9);
     padding-top: 0.5em;  
 }
 
 nav{
     margin-top: 2em;
     padding: 1em;
-    background-color:rgba(59,130,246,1);
 }
 
 nav ul{
@@ -42,6 +43,7 @@ nav li a{
 }
 
 section{
+    
     box-shadow: var(--tw-ring-offset-shadow,0 0 transparent),var(--tw-ring-shadow,0 0 transparent),var(--tw-shadow);
     --tw-shadow: 0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -2px rgba(0,0,0,0.05);
     border: 0 solid #d5d7da;
@@ -51,6 +53,8 @@ section{
     padding-top: 2rem;
     margin-top: 3em;
     margin-bottom: 3em;
+    background-color: white;
+    
 }
 
 footer{
@@ -96,6 +100,7 @@ input, textarea{
     border-style: solid; 
     border-color: black;
     border-radius: 8px; 
+    background-color:white;
 }
 input{
     height: 3em;
@@ -126,20 +131,23 @@ button{
 }
 
 .cards{
-    border: 2px solid black;
+    border: 3px solid black;
     text-align: center;
     margin: 1em;
     padding: 1em;
-    border-radius: 5%;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    border-radius: 20px;
     cursor: pointer;
 }
 
 .cards:hover{
     transform: rotate(-5deg);
-    border: 2px solid rgba(59,130,246,1);;
+    border: 2px solid rgba(59,130,246,1);
+    padding: 3em;
 }
 
-#technologies{
+#technologies{ 
     display: flex;
     justify-content:space-around ;
     margin-left: 2em;

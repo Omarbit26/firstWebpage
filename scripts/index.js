@@ -1,4 +1,3 @@
-
 class Activity{
     constructor(id,title,description,imgURL){
         this.id=id;
@@ -30,21 +29,86 @@ class Repository{
             return activity.id!==id;
         })
     }
-        
 }
 
-const miRepositorio = new Repository();
+const showActivity = (activity)=>{
+
+  let  {id,title,description,imgURL} = activity;
+
+  const tarjeta = document.createElement('div');
+  const tituloElemento = document.createElement('h3');
+  tituloElemento.style.fontSize = "150%";
+  tituloElemento.style.fontWeight = "600";
+  tituloElemento.margin = "1em";
+
+  const descripcionElemento = document.createElement('p');
+  descripcionElemento.style.fontSize = "100%";
+  descripcionElemento.style.lineHeight = "1.5";
+  descripcionElemento.margin = "1em";
+
+  const imagenElemento = document.createElement('img');
+  imagenElemento.style.width="200px";
+  imagenElemento.height.width="200px";
+   
+   
+  tituloElemento.innerHTML = title;
+  descripcionElemento.innerHTML = description;
+  imagenElemento.src = imgURL;
+
+  tarjeta.classList.add('tarjeta');
+  tituloElemento.classList.add('titulo-actividad');
+  descripcionElemento.classList.add('descripcion-actividad');
+  imagenElemento.classList.add('imagen-actividad');
+
+  tarjeta.appendChild(tituloElemento);
+  tarjeta.appendChild(descripcionElemento);
+  tarjeta.appendChild(imagenElemento);
+
+  tarjeta.style.border = '3px solid black';
+  tarjeta.style.textAlign = "center";
+  tarjeta.style.margin = "1em";
+  tarjeta.style.padding = "1em";
+  tarjeta.style.paddingTop = "1em";
+  tarjeta.style.paddingBottom = "1em"; 
+  tarjeta.style.borderRadius = "5px";
+
+  return tarjeta;
+}
+
+const convertActivies = ()=>{
+    
+    const contenedorTarjetas = document.getElementById("contenedorTarjetas");
+    contenedorTarjetas.innerHTML="";
+    const listaActividades = repository.getAllActivities();
+    const tarjetas = listaActividades.map(act => showActivity(act));
+    tarjetas.forEach(tarjeta=>contenedorTarjetas.appendChild(tarjeta));
+
+    // agregando estilos
+
+    contenedorTarjetas.style.display="flex";
+    contenedorTarjetas.style.justifyContent = "space-around";
 
 
+}
 
-miRepositorio.createActivity("jugar","123","https://www.youtube.com/");
+const repository = new Repository();
 
-console.log(miRepositorio.getAllActivities())
 
-miRepositorio.createActivity("correr","564","https://www.facebook.com/");
+const HandlerAddActivities = ()=>{
 
-console.log(miRepositorio.getAllActivities())
+    const tituloInput = document.getElementById("titulo").value
+    const descripcionInput = document.getElementById("descripcion").value
+    const urlImagenInput = document.getElementById("urlImagen").value
 
-miRepositorio.deleteActivity(1);
+    if(tituloInput==="" && descripcionInput===""&&turlImagenInput===""){
+        alert("competar todos los campos");
+    }
+    else{
+        repository.createActivity(tituloInput,descripcionInput,urlImagenInput);
+        convertActivies();
+    }
+}
 
-console.log(miRepositorio.getAllActivities())
+
+botonAgregarActivity = document.getElementById("btnAddActivity")
+botonAgregarActivity.addEventListener('click',HandlerAddActivities);
