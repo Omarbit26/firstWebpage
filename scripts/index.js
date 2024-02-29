@@ -32,7 +32,8 @@ class Repository{
 
 const repository = new Repository();
 
-const showActivity = ({title,description,imgURL})=>{
+
+const showActivity = ({id,title,description,imgURL})=>{
 
   const tarjeta = document.createElement('div');
   const tituloElemento = document.createElement('h3');
@@ -54,6 +55,8 @@ const showActivity = ({title,description,imgURL})=>{
   tarjeta.appendChild(imagenElemento);
   tarjeta.appendChild(descripcionElemento);
 
+  tarjeta.id = id;
+
   return tarjeta;
 }
 
@@ -68,9 +71,18 @@ const convertActivies = ()=>{
 
 }
 
+const handlerSelectAct = (event)  => {
+    console.log(event.target)
+    const tarjetaSeleccionada = event.target;            
+    if(tarjetaSeleccionada.classList=="tarjetaActividad"){
+        tarjetaSeleccionada.style.border = "3px solid red"
+        actividadesSeleccionadas.push(tarjetaSeleccionada);
+    }
+}
 
-const handlerAddActivities = ()=>{
+const handlerAddActivities = (event)=>{
 
+    event.preventDefault();
 
     const tituloInput = document.getElementById("titulo").value
     const descripcionInput = document.getElementById("descripcion").value
@@ -90,24 +102,28 @@ const handlerAddActivities = ()=>{
     document.getElementById("descripcion").value=""
     document.getElementById("urlImagen").value=""
     
+
+    const actividadAgregadas = document.querySelectorAll(".tarjetaActividad");
+    actividadAgregadas.forEach(el => {
+        el.addEventListener('click', handlerSelectAct);
+    });
+
 }
 
 
 const handlerDeleteActivities = ()=>{
     
-    repository.activities.forEach(act=>repository.deleteActivity(act.id));
-    const contenedorTarjetas = document.getElementById("contenedorTarjetas");
-    contenedorTarjetas.innerHTML="Click add Activitie to eliminate the cards";
-    
-
+    actividadesSeleccionadas.forEach(actividadSeleccionada => {
+        repository.deleteActivity(parseInt(actividadSeleccionada.id));
+        actividadSeleccionada.remove();
+    });
 }
 
 
+const actividadesSeleccionadas = []; // para guardar las tarjetas seleccionadas para eliminar
 
 const botonAgregarActivity = document.getElementById("btnAddActivity");
 const botonDeleteActivity = document.getElementById("btnEliminateActivity");
-
-
 
 botonAgregarActivity.addEventListener('click',handlerAddActivities); 
 botonDeleteActivity.addEventListener('click',handlerDeleteActivities);

@@ -174,14 +174,9 @@ button{
     padding-left: 1rem;
     border-radius: 15px;
     cursor:pointer;
+    
 }
 
-.tarjetaActividad:hover{
-    padding:2em ;
-    border-width: 3px;
-    border-style:dashed;
-    border-color: red;
-}
 
 .tituloActividad{
     font-size: 150%;
@@ -211,5 +206,12 @@ button{
     background-color:rgb(251, 36, 36);
     display: block;
     margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#eliminarTarjetas{
+    text-align: center;
+    font-family: 'Lato';
     margin-top: 1em;
 }
