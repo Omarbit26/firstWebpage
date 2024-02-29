@@ -164,3 +164,35 @@ button{
     line-height: 1.5;
 }
 
+.tarjetaActividad{
+    border: 2px solid black ;
+    text-align: center;
+    margin: 1em;
+    padding:1em ;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 5px;
+}
+
+.tituloActividad{
+    font-size: 150%;
+    font-weight: 600;
+    margin: 1em;
+
+}
+
+.descripcionActividad{
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 1em;
+}
+
+.imagenActividad{
+    width: 200px;
+    height: 200px;
+}
+
+#contenedorTarjetas{
+    display: flex;
+    justify-content: space-around;
+}

@@ -20,7 +20,6 @@ class Repository{
     createActivity(title,description,imgURL){
         this.id++;
         const activity = new Activity(this.id,title,description,imgURL);
-        console.log(activity);
         this.activities.push(activity);
     }
 
@@ -31,46 +30,31 @@ class Repository{
     }
 }
 
+const repository = new Repository();
+
 const showActivity = (activity)=>{
 
-  let  {id,title,description,imgURL} = activity;
+
+  const tituloElemento = document.createElement('h3');
+  const descripcionElemento = document.createElement('p');
+  const imagenElemento = document.createElement('img');
+   
+  tituloElemento.innerHTML = activity.title;
+  imagenElemento.src=activity.imgURL;
+  descripcionElemento.innerHTML = activity.description;
+  
+
+  tituloElemento.classList.add('tituloActividad');
+  descripcionElemento.classList.add('descripcionActividad');
+  imagenElemento.classList.add('imagenActividad');
 
   const tarjeta = document.createElement('div');
-  const tituloElemento = document.createElement('h3');
-  tituloElemento.style.fontSize = "150%";
-  tituloElemento.style.fontWeight = "600";
-  tituloElemento.margin = "1em";
-
-  const descripcionElemento = document.createElement('p');
-  descripcionElemento.style.fontSize = "100%";
-  descripcionElemento.style.lineHeight = "1.5";
-  descripcionElemento.margin = "1em";
-
-  const imagenElemento = document.createElement('img');
-  imagenElemento.style.width="200px";
-  imagenElemento.height.width="200px";
-   
-   
-  tituloElemento.innerHTML = title;
-  descripcionElemento.innerHTML = description;
-  imagenElemento.src = imgURL;
-
-  tarjeta.classList.add('tarjeta');
-  tituloElemento.classList.add('titulo-actividad');
-  descripcionElemento.classList.add('descripcion-actividad');
-  imagenElemento.classList.add('imagen-actividad');
 
   tarjeta.appendChild(tituloElemento);
-  tarjeta.appendChild(descripcionElemento);
   tarjeta.appendChild(imagenElemento);
-
-  tarjeta.style.border = '3px solid black';
-  tarjeta.style.textAlign = "center";
-  tarjeta.style.margin = "1em";
-  tarjeta.style.padding = "1em";
-  tarjeta.style.paddingTop = "1em";
-  tarjeta.style.paddingBottom = "1em"; 
-  tarjeta.style.borderRadius = "5px";
+  tarjeta.appendChild(descripcionElemento);
+  
+  tarjeta.classList.add('tarjetaActividad');
 
   return tarjeta;
 }
@@ -79,36 +63,37 @@ const convertActivies = ()=>{
     
     const contenedorTarjetas = document.getElementById("contenedorTarjetas");
     contenedorTarjetas.innerHTML="";
+
     const listaActividades = repository.getAllActivities();
-    const tarjetas = listaActividades.map(act => showActivity(act));
-    tarjetas.forEach(tarjeta=>contenedorTarjetas.appendChild(tarjeta));
-
-    // agregando estilos
-
-    contenedorTarjetas.style.display="flex";
-    contenedorTarjetas.style.justifyContent = "space-around";
-
+    const tarjetas = listaActividades.map((act) => showActivity(act));
+    tarjetas.forEach((tarjeta)=>contenedorTarjetas.appendChild(tarjeta));
 
 }
 
-const repository = new Repository();
-
 
 const HandlerAddActivities = ()=>{
+
 
     const tituloInput = document.getElementById("titulo").value
     const descripcionInput = document.getElementById("descripcion").value
     const urlImagenInput = document.getElementById("urlImagen").value
 
-    if(tituloInput==="" && descripcionInput===""&&turlImagenInput===""){
+    if(!tituloInput || !descripcionInput || !urlImagenInput){
         alert("competar todos los campos");
+        return
     }
+    
     else{
-        repository.createActivity(tituloInput,descripcionInput,urlImagenInput);
-        convertActivies();
+    repository.createActivity(tituloInput,descripcionInput,urlImagenInput);
+    convertActivies();
     }
+
+    document.getElementById("titulo").value=""
+    document.getElementById("descripcion").value=""
+    document.getElementById("urlImagen").value=""
+    
+
 }
 
-
 botonAgregarActivity = document.getElementById("btnAddActivity")
-botonAgregarActivity.addEventListener('click',HandlerAddActivities);
+botonAgregarActivity.addEventListener('click',HandlerAddActivities); 
