@@ -57,6 +57,13 @@ const showActivity = ({id,title,description,imgURL})=>{
 
   tarjeta.id = id;
 
+  tarjeta.addEventListener("click",function(){
+        tarjeta.style.border = "3px solid red";
+        actividadesSeleccionadas.push(tarjeta);
+  });
+
+
+
   return tarjeta;
 }
 
@@ -66,18 +73,16 @@ const convertActivies = ()=>{
     contenedorTarjetas.innerHTML="";
 
     const listaActividades = repository.getAllActivities();
-    const tarjetas = listaActividades.map((act) => showActivity(act));
-    tarjetas.forEach((tarjeta)=>contenedorTarjetas.appendChild(tarjeta));
 
-}
-
-const handlerSelectAct = (event)  => {
-    console.log(event.target)
-    const tarjetaSeleccionada = event.target;            
-    if(tarjetaSeleccionada.classList=="tarjetaActividad"){
-        tarjetaSeleccionada.style.border = "3px solid red"
-        actividadesSeleccionadas.push(tarjetaSeleccionada);
+    if(listaActividades.length == 0){
+        contenedorTarjetas.innerHTML="There is not activities";
     }
+    else{
+        const tarjetas = listaActividades.map((act) => showActivity(act));
+        tarjetas.forEach((tarjeta)=>contenedorTarjetas.appendChild(tarjeta));
+    }
+    
+
 }
 
 const handlerAddActivities = (event)=>{
@@ -101,13 +106,6 @@ const handlerAddActivities = (event)=>{
     document.getElementById("titulo").value=""
     document.getElementById("descripcion").value=""
     document.getElementById("urlImagen").value=""
-    
-
-    const actividadAgregadas = document.querySelectorAll(".tarjetaActividad");
-    actividadAgregadas.forEach(el => {
-        el.addEventListener('click', handlerSelectAct);
-    });
-
 }
 
 
@@ -115,8 +113,8 @@ const handlerDeleteActivities = ()=>{
     
     actividadesSeleccionadas.forEach(actividadSeleccionada => {
         repository.deleteActivity(parseInt(actividadSeleccionada.id));
-        actividadSeleccionada.remove();
     });
+    convertActivies();
 }
 
 
