@@ -1,38 +1,7 @@
-class Activity{
-    constructor(id,title,description,imgURL){
-        this.id=id;
-        this.title=title;
-        this.description=description;
-        this.imgURL=imgURL;
-    }
-}
+const { Activity,Repository} = require("../scripts/models")
 
-class Repository{
-    constructor(){
-        this.activities=[];
-        this.id = 0;
-    }
-
-    getAllActivities(){
-        return this.activities
-    }   
-    
-    createActivity(title,description,imgURL){
-        this.id++;
-        const activity = new Activity(this.id,title,description,imgURL);
-        this.activities.push(activity);
-    }
-
-    deleteActivity(id){
-    this.activities =   this.activities.filter(activity=>{
-            return activity.id!==id;
-        })
-    }
-}
 
 const repository = new Repository();
-
-
 const showActivity = ({id,title,description,imgURL})=>{
 
   const tarjeta = document.createElement('div');
@@ -125,4 +94,6 @@ const botonDeleteActivity = document.getElementById("btnEliminateActivity");
 
 botonAgregarActivity.addEventListener('click',handlerAddActivities); 
 botonDeleteActivity.addEventListener('click',handlerDeleteActivities);
+
+
 

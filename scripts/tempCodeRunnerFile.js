@@ -1,2 +1,0 @@
-lue=""
-    document.getElementById("descripcion
